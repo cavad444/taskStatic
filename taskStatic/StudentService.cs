@@ -8,21 +8,16 @@ namespace taskStatic
 {
     internal class StudentService : IStudentService
     {
-        public string fullName;
         public void Create(string name, string surname, Group studentGroup)
         {
-            fullName = $"{name} {surname}";
             Student student = new Student();
             student.Name = name;
             student.Surname = surname;
             Array.Resize(ref studentGroup.Students, studentGroup.Students.Length + 1);
-            studentGroup.Students[studentGroup.Students.Length-1] = fullName;
+            studentGroup.Students[studentGroup.Students.Length-1] = $"{name} {surname}";
         }
 
-        public void Create(string name, string surname)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public void Delete(int id, Group studentGroup)
         {
