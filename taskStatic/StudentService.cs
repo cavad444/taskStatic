@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,13 +47,23 @@ namespace taskStatic
         {
             foreach(string fullName in studentGroup.Students)
             {
+                
                 Console.WriteLine(fullName);
             }
         }
 
         public void GetById(int id, Group studentGroup)
         {
-            Console.WriteLine(studentGroup.Students[id]);
+            try
+            {
+                Console.WriteLine(studentGroup.Students[id]);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Bu index-li telebe yoxdur");
+            }
+            
         }
     }
 }
