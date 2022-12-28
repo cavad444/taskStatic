@@ -8,7 +8,7 @@ namespace taskStatic
 {
     internal class Student:StudentService
     {
-        private static int _id = 1;
+        private static int _id = 0;
         private string _name;
         private string _surname;
         private double _avarage;
@@ -67,9 +67,9 @@ namespace taskStatic
             } }
          public Student()
         {
-        
-            _id++;
             id = _id;
+            _id++;
+            
         }
     }
 }
