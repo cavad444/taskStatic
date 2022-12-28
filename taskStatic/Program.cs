@@ -10,6 +10,7 @@ Group studentGroup = new Group();
 StudentService studentService = new StudentService();
 while (decision != 0)
 {
+    Console.WriteLine("Bir eded daxil edin");
     decision = Convert.ToInt32(Console.ReadLine());
     if (decision == 1)
     {
@@ -46,7 +47,6 @@ while (decision != 0)
         studentService.GetById(id,studentGroup);
     }
 
-    studentGroup.GetAll(studentGroup);
 }
 Console.WriteLine("Cixdiniz");
 
