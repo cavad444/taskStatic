@@ -8,10 +8,10 @@ namespace taskStatic
 {
     internal interface IStudentService
     {
-        public void Create(string name, string surname);
-        public void Delete(int id);
-        public void Edit(int id,string name,string surname);
-        public void GetAll();
-        public void GetById(int id);
+        public void Create(string name, string surname, Group studentGroup);
+        public void Delete(int id,Group studentGroup);
+        public void Edit(int id,string name,string surname, Group studentGroup);
+        public void GetAll(Group studentGroup);
+        public void GetById(int id, Group studentGroup);
     }
 }

@@ -9,22 +9,26 @@ namespace taskStatic
     internal class StudentService : IStudentService
     {
         public string fullName;
-       
-        public void Create(string name, string surname)
+        public void Create(string name, string surname, Group studentGroup)
         {
             fullName = $"{name} {surname}";
             Student student = new Student();
             student.Name = name;
             student.Surname = surname;
-            Array.Resize(ref Group.Students, Group.Students.Length + 1);
-            Group.Students[Group.Students.Length-1] = fullName;
+            Array.Resize(ref studentGroup.Students, studentGroup.Students.Length + 1);
+            studentGroup.Students[studentGroup.Students.Length-1] = fullName;
         }
 
-        public void Delete(int id)
+        public void Create(string name, string surname)
         {
-            if(id >=0 && id<=Group.Students.Length-1)
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id, Group studentGroup)
+        {
+            if(id >=0 && id<= studentGroup.Students.Length-1)
             {
-                Group.Students = Group.Students.Where(val => val != Group.Students[id]).ToArray();
+                studentGroup.Students = studentGroup.Students.Where(val => val != studentGroup.Students[id]).ToArray();
             }
             else
             {
@@ -32,11 +36,11 @@ namespace taskStatic
             }
         }
 
-        public void Edit(int id, string name, string surname)
+        public void Edit(int id, string name, string surname, Group studentGroup)
         {
-            if (id >= 0 && id <= Group.Students.Length - 1)
+            if (id >= 0 && id <= studentGroup.Students.Length - 1)
             {
-                Group.Students[id] = $"{name} {surname}";
+                studentGroup.Students[id] = $"{name} {surname}";
             }
             else
             {
@@ -44,17 +48,17 @@ namespace taskStatic
             }
             }
 
-        public void GetAll()
+        public void GetAll(Group studentGroup)
         {
-            foreach(string fullName in Group.Students)
+            foreach(string fullName in studentGroup.Students)
             {
                 Console.WriteLine(fullName);
             }
         }
 
-        public void GetById(int id)
+        public void GetById(int id, Group studentGroup)
         {
-            Console.WriteLine(Group.Students[id]);
+            Console.WriteLine(studentGroup.Students[id]);
         }
     }
 }

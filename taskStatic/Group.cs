@@ -10,7 +10,7 @@ namespace taskStatic
     {
         private int _id;
         private string _name;
-        public static string[] Students;
+        public string[] Students;
 
         public int Id { get { return _id; } set { _id = value; } }
         public string Name { get { return _name; } set { _name = value; } }
