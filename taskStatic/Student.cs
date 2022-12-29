@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace taskStatic
 {
-    internal class Student:StudentService
+    internal class Student : StudentService
     {
         private static int _id = 0;
         private string _name;
         private string _surname;
         private double _avarage;
-        public int id;
-        public int Id { get; set; }
-        public string Name {
-            get { 
+        public readonly int Id;
+        
+        public string Name
+        {
+            get
+            {
                 return _name;
             }
             set
             {
-                if(!string.IsNullOrEmpty(value) && value.Length>=3 && value.Length <= 15)
+                if (!string.IsNullOrEmpty(value) && value.Length >= 3 && value.Length <= 15)
                 {
                     _name = value;
                 }
@@ -28,17 +30,17 @@ namespace taskStatic
                 {
                     Console.WriteLine("Telebenin adi 3 herfden kicik, 15 herfden boyuk, ve ya bosh ola bilmez!");
                 }
-            } 
+            }
         }
         public string Surname
         {
             get
-             {
+            {
                 return _surname;
             }
             set
             {
-                if(!string.IsNullOrEmpty(value) && value.Length >= 3 && value.Length <= 15)
+                if (!string.IsNullOrEmpty(value) && value.Length >= 3 && value.Length <= 15)
                 {
                     _surname = value;
                 }
@@ -48,14 +50,15 @@ namespace taskStatic
                 }
             }
         }
-        public double Avarage { 
-            get 
-            { 
-            return _avarage;
+        public double Avarage
+        {
+            get
+            {
+                return _avarage;
             }
             set
-            { 
-                if(value >= 0 && value <=100)
+            {
+                if (value >= 0 && value <= 100)
                 {
                     _avarage = value;
                 }
@@ -64,12 +67,19 @@ namespace taskStatic
                     Console.WriteLine("Ortalama 0-100 intervalinda olmalidi");
 
                 }
-            } }
-         public Student()
+            }
+        }
+        public Student()
         {
-            id = _id;
             _id++;
-            
+            Id = _id;
+           
+
+        }
+
+        public static implicit operator Student(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
